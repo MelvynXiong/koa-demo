@@ -5,11 +5,13 @@ const logger = require("./middlewares/logger");
 const time = require("./middlewares/time");
 const controller = require("./middlewares/controller");
 const bodyParser = require("koa-bodyparser");
+const staticFiles = require("./middlewares/static-files");
 
 const app = new Koa();
 app.use(logger);
 app.use(time);
 app.use(bodyParser());
+app.use(staticFiles("/static/", path.join(__dirname, "static")));
 app.use(controller());
 
 // 在端口3000监听:
