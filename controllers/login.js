@@ -3,10 +3,10 @@ const homeController = async (ctx, next) => {
 };
 
 const signController = async (ctx, next) => {
-  const name = ctx.request.body.name || "";
+  const email = ctx.request.body.email || "";
   const password = ctx.request.body.password || "";
-  console.log(`signin with name: ${name}, password: ${password}`);
-  if (name === "koa" && password === "12345") {
+  console.log(`signin with email: ${email}, password: ${password}`);
+  if (email === "koa@youzan.com" && password === "12345") {
     ctx.render("sign-ok.html", {
       title: "sign in ok",
       name: "xiong",
